@@ -1,0 +1,12 @@
+{
+  "api.version": "v1",
+  "source": {
+      "name": "{{ item.name }}",
+      "sourceType": "LocalFile",
+      "automaticDateParsing": true,
+      "multilineProcessingEnabled": "{{ item.use_multiline | default(false) }}",
+      "useAutolineMatching": true,
+      "pathExpression": "{{ item.path }}",
+      "category": "{{ deployment_id }}/{{ item.category }}"
+    }
+}
