@@ -5,7 +5,6 @@
     name: "{{ sumologic_collector_service_name }}"
     state: stopped
     use: service
-  tags: [sumologic, sumologic-collector]
   notify: 'Restart SumoCollector wait'
   changed_when: True
 
@@ -14,7 +13,6 @@
 - name: Restart SumoCollector wait
   pause: 
     seconds: 10
-  tags: [sumologic, sumologic-collector]
   notify: Restart SumoCollector start
   changed_when: True
 
@@ -23,7 +21,6 @@
     name: "{{ sumologic_collector_service_name }}"
     state: started
     use: service
-  tags: [sumologic, sumologic-collector]
   changed_when: True
 ## for CI testing with invalid credentials
   ignore_errors: true
@@ -32,5 +29,4 @@
   service:
     name: journalctl_syslog
     state: restarted
-  tags: [sumologic, sumologic-collector]
 
